@@ -14,6 +14,11 @@ export function buildLoaders({ mode }: BuildOptions): ModuleOptions['rules'] {
         ],
     };
 
+    const cssLoader = {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+    };
+
     const tsLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -30,5 +35,17 @@ export function buildLoaders({ mode }: BuildOptions): ModuleOptions['rules'] {
         type: 'asset/resource',
     };
 
-    return [scssLoader, tsLoader, imageLoader, svgrLoader];
+    const fontsLoader = {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+    };
+
+    return [
+        scssLoader,
+        cssLoader,
+        tsLoader,
+        imageLoader,
+        svgrLoader,
+        fontsLoader,
+    ];
 }
