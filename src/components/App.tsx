@@ -1,16 +1,24 @@
-import BackArrow from '@/assets/icons/back-arrow.svg';
-import './App.scss';
 import styled from 'styled-components';
+import { Pagination } from './Pagination';
 
-const Title = styled.h1`
-    color: blue;
+const AppGlobalStyled = styled.div`
+    font-family: 'PT Sans', sans-serif;
+`;
+
+const PaginationContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
 `;
 
 export const App = () => {
     return (
-        <div>
-            <Title>Hello world!</Title>;
-            <BackArrow style={{ color: 'red' }} />
-        </div>
+        <AppGlobalStyled>
+            <PaginationContainer>
+                <Pagination title='Историчеcкие даты' />
+            </PaginationContainer>
+        </AppGlobalStyled>
     );
 };
