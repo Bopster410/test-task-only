@@ -1,7 +1,9 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useRef } from 'react';
 import { Props } from './index.types';
 import { DEFAULT_MIN_PAGE } from '../index.constants';
 import styled from 'styled-components';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const Label = styled.div`
     font-weight: 700;
@@ -35,10 +37,26 @@ export const PaginationLabel: FunctionComponent<Props> = ({
         currentPageRelative >= 0 && currentPageRelative < labels.length
             ? labels[currentPageRelative]
             : labels[0];
+
+    const labelLeftRef = useRef(null);
+    const labelRightRef = useRef(null);
+    useGSAP(() => {
+        gsap.to(labelLeftRef.current, {
+            innerText: left,
+            duration: 1,
+            snap: { innerText: 1 },
+        });
+        gsap.to(labelRightRef.current, {
+            innerText: right,
+            duration: 1,
+            snap: { innerText: 1 },
+        });
+    }, [left, right]);
+
     return (
         <Label>
-            <LabelLeft>{left}</LabelLeft>
-            <LabelRight>{right}</LabelRight>
+            <LabelLeft ref={labelLeftRef} />
+            <LabelRight ref={labelRightRef} />
         </Label>
     );
 };
