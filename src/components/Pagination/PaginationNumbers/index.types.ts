@@ -1,12 +1,4 @@
-type ClickParams = { clickedPage: number };
+import { DesktopProps } from './PaginationNumbersDesktop';
+import { MobileProps } from './PaginationNumbersMobile';
 
-export interface Props {
-    currentPage: number;
-    maxPage?: number;
-    minPage?: number;
-    size: string;
-    onPageClick?: (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-        params: ClickParams
-    ) => void;
-}
+export interface Props extends MobileProps, DesktopProps {}

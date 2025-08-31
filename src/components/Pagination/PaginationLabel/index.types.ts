@@ -1,4 +1,4 @@
-type Label = {
+export type Label = {
     left: string;
     right: string;
 };

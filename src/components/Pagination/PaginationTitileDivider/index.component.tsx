@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react';
 import { Props } from './index.types';
-import styled from 'styled-components';
 
 export const PaginationTitleDivider: FunctionComponent<Props> = ({}) => {
     return (
@@ -14,7 +13,7 @@ export const PaginationTitleDivider: FunctionComponent<Props> = ({}) => {
             <path
                 d='M3 0L2.99999 120'
                 stroke='url(#paint0_linear_1_56)'
-                stroke-width='5'
+                strokeWidth='5'
             />
             <defs>
                 <linearGradient
@@ -25,10 +24,10 @@ export const PaginationTitleDivider: FunctionComponent<Props> = ({}) => {
                     y2='102'
                     gradientUnits='userSpaceOnUse'
                 >
-                    <stop stop-color='#3877EE' />
+                    <stop stopColor='var(--color-blue)' />
                     <stop
                         offset='1'
-                        stop-color='#EF5DA8'
+                        stopColor='var(--color-fuschia)'
                     />
                 </linearGradient>
             </defs>

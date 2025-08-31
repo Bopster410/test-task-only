@@ -1,3 +1,11 @@
+:root {
+    --mobile-width: 768px;
+    --color-black-blue: #425779;
+    --color-blue: #377aeb;
+    --color-fuschia: #ef5ea7;
+    --color-black-blue-shadow: rgba(56, 119, 238, 0.2);
+}
+
 @font-face {
     font-family: 'PT Sans';
     src: url('./assets/fonts/PT_Sans/PTSans-Regular.ttf') format('ttf');
@@ -23,6 +31,15 @@ button.swiper-button-disabled {
     opacity: 0;
     transition: opacity 0.2s;
     pointer-events: none;
+}
+
+div.swiper-slide {
+    width: auto;
+}
+
+body {
+    // overflow: hidden;
+    margin: 0;
 }
 
 * {
