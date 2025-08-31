@@ -4,24 +4,30 @@ import { DEFAULT_MIN_PAGE } from '../index.constants';
 import styled from 'styled-components';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { MAX_MOBILE_SCREEN_SIZE } from '@/config';
 
 const Label = styled.div`
     font-weight: 700;
-    font-size: 200px;
+    font-size: 12.5rem;
     line-height: 80%;
     letter-spacing: -0.02em;
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 4rem;
+
+    @media (max-width: ${MAX_MOBILE_SCREEN_SIZE}px) {
+        font-size: clamp(3.5rem, 0.2857rem + 16.0714vw, 8rem);
+        gap: 2rem;
+    }
 `;
 
 const LabelLeft = styled.span`
-    color: #5d5fef;
+    color: var(--color-blue);
 `;
 
 const LabelRight = styled.span`
-    color: #ef5da8;
+    color: var(--color-fuschia);
 `;
 
 export const PaginationLabel: FunctionComponent<Props> = ({

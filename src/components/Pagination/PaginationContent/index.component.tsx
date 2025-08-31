@@ -7,6 +7,19 @@ import 'swiper/css/navigation';
 import { ContentCard } from './ContentCard';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import styled from 'styled-components';
+import { MAX_MOBILE_SCREEN_SIZE } from '@/config';
+
+const SwiperMobileOverflowVisible = styled(Swiper)`
+    @media (max-width: ${MAX_MOBILE_SCREEN_SIZE}px) {
+        overflow: visible;
+    }
+`;
+
+const EmptyMessage = styled.div`
+    font-size: 2rem;
+    color: var(--color-black-blue);
+`;
 
 export const PaginationContent: FunctionComponent<Props & SwiperProps> = ({
     currentPage,
@@ -55,18 +68,21 @@ export const PaginationContent: FunctionComponent<Props & SwiperProps> = ({
             : contents[0];
 
     return (
-        <Swiper
+        <SwiperMobileOverflowVisible
             ref={contentAreaRef}
             {...props}
         >
+            {currentContent.length === 0 && (
+                <EmptyMessage>Тут пока что ничего нет!</EmptyMessage>
+            )}
             {currentContent.map(({ label, description }) => (
-                <SwiperSlide>
+                <SwiperSlide key={label}>
                     <ContentCard
                         label={label}
                         description={description}
                     />
                 </SwiperSlide>
             ))}
-        </Swiper>
+        </SwiperMobileOverflowVisible>
     );
 };

@@ -1,4 +1,4 @@
-type PageContent = { description: string; label: string }[];
+export type PageContent = { description: string; label: string }[];
 
 export interface Props {
     currentPage: number;
